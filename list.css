@@ -1,0 +1,597 @@
+/* ===== Variabel warna (tema gelap) ===== */
+:root {
+    color-scheme: dark;
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --line: #262626;
+    --muted: #7d7d7d;
+    --text: #d9d9d9;
+    --strong: #f2f2f2;
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* ===== Variabel warna (tema terang) ===== */
+:root[data-theme="light"] {
+    color-scheme: light;
+    --bg: #e9e9e9;
+    --surface: #f4f4f4;
+    --line: #cfcfcf;
+    --muted: #6b6b6b;
+    --text: #2b2b2b;
+    --strong: #0a0a0a;
+}
+
+/* ===== Reset & dasar ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--strong);
+    outline-offset: 3px;
+}
+
+.wrapper {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* ===== Logo NK di latar belakang ===== */
+.bg-logo {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    opacity: 0.22;
+}
+
+.bg-logo svg {
+    width: min(80vmin, 640px);
+    height: auto;
+}
+
+.logo-circle {
+    fill: #5a5a5a;
+}
+
+.logo-text {
+    font-family: "Poppins", "Montserrat", "Segoe UI", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 150px;
+    fill: #ffffff;
+    letter-spacing: -2px;
+}
+
+.logo-dot {
+    fill: #2bb5cf;
+}
+
+:root[data-theme="light"] .bg-logo {
+    opacity: 0.3;
+}
+
+:root[data-theme="light"] .logo-circle {
+    fill: #8f8f8f;
+}
+
+/* ===== Navbar ===== */
+nav {
+    border-bottom: 1px solid var(--line);
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+nav .logo {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--strong);
+}
+
+nav ul {
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    color: var(--muted);
+    transition: color 0.2s, background 0.2s;
+}
+
+nav ul li a:hover {
+    color: var(--strong);
+}
+
+nav ul li a.active {
+    background: var(--surface);
+    color: var(--strong);
+    box-shadow: inset 0 0 0 1px var(--line);
+}
+
+/* ===== Tombol ===== */
+.button-ghost {
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.45rem 1.1rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.button-ghost:hover {
+    color: var(--strong);
+    border-color: var(--muted);
+}
+
+.button-solid {
+    background: var(--strong);
+    color: var(--bg);
+    border: 0;
+    border-radius: 10px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.button-solid:hover {
+    opacity: 0.85;
+}
+
+.link {
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.link:hover {
+    color: var(--strong);
+}
+
+/* ===== Halaman & tipografi ===== */
+.view {
+    padding: clamp(2.5rem, 8vh, 4.5rem) 0;
+    animation: muncul 0.5s ease both;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--strong);
+    margin: 0.2rem 0 2rem;
+}
+
+h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: var(--strong);
+    margin: 0 0 1.5rem;
+}
+
+h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--strong);
+    margin: 2.5rem 0 1rem;
+}
+
+/* ===== Form tugas ===== */
+#form-tugas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+input[type=text],
+input[type=search],
+select,
+textarea {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    color: var(--strong);
+    transition: border-color 0.2s;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--muted);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--muted);
+}
+
+#input-tugas {
+    flex: 1 1 220px;
+    min-width: 0;
+}
+
+select {
+    appearance: none;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.filters,
+.modes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.filters button,
+.modes button {
+    background: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+    transition: all 0.2s;
+}
+
+.filters button:hover,
+.modes button:hover {
+    color: var(--strong);
+}
+
+.filters button.active,
+.modes button.active {
+    background: var(--strong);
+    color: var(--bg);
+    border-color: var(--strong);
+}
+
+#cari {
+    width: 200px;
+    max-width: 100%;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+}
+
+/* ===== Daftar tugas ===== */
+#daftar-tugas {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#daftar-tugas li {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+#daftar-tugas li input[type=checkbox] {
+    accent-color: var(--strong);
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+#daftar-tugas li label {
+    flex: 1;
+    cursor: pointer;
+    word-break: break-word;
+    transition: color 0.25s;
+}
+
+#daftar-tugas li.done label {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+#daftar-tugas li.kosong {
+    color: var(--muted);
+    border-bottom: 0;
+}
+
+.edit {
+    flex: 1;
+    padding: 0.4rem 0.7rem;
+}
+
+.prio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 0;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.prio::before {
+    content: "";
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--muted);
+}
+
+.prio.tinggi::before {
+    background: var(--strong);
+    border-color: var(--strong);
+}
+
+.prio.sedang::before {
+    background: linear-gradient(90deg, var(--muted) 50%, transparent 50%);
+}
+
+.hapus {
+    background: none;
+    border: 0;
+    padding: 0.1rem 0.5rem;
+    font-size: 1.2rem;
+    color: var(--muted);
+    transition: color 0.2s;
+}
+
+.hapus:hover {
+    color: var(--strong);
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.1rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* ===== Timer ===== */
+.modes {
+    margin-bottom: 2rem;
+}
+
+.dial {
+    position: relative;
+    width: min(320px, 80vw);
+    aspect-ratio: 1;
+    margin: 0 auto 2rem;
+}
+
+.dial svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.dial circle {
+    fill: none;
+    stroke-width: 3;
+}
+
+.track {
+    stroke: var(--line);
+}
+
+.bar {
+    stroke: var(--strong);
+    stroke-linecap: round;
+    stroke-dasharray: 565.49;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 0.4s linear;
+}
+
+.dial-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#waktu {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 14vw, 4.6rem);
+    line-height: 1;
+    color: var(--strong);
+    font-variant-numeric: tabular-nums;
+}
+
+.dial-text small {
+    margin-top: 0.5rem;
+    color: var(--muted);
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+/* ===== Catatan ===== */
+textarea {
+    width: 100%;
+    min-height: 340px;
+    resize: vertical;
+    line-height: 1.8;
+}
+
+/* ===== Statistik ===== */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.stat {
+    background: var(--bg);
+    padding: 1.4rem 1.2rem;
+}
+
+.stat b {
+    display: block;
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 2.6rem;
+    line-height: 1.1;
+    color: var(--strong);
+}
+
+.stat span {
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+.chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.8rem;
+    height: 180px;
+    padding-top: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.col {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+}
+
+.col i {
+    display: block;
+    width: 100%;
+    max-width: 44px;
+    min-height: 2px;
+    background: var(--strong);
+    border-radius: 4px 4px 0 0;
+    transition: height 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.col i.nol {
+    background: var(--line);
+}
+
+/* ===== Footer ===== */
+footer {
+    border-top: 1px solid var(--line);
+    padding: 1.5rem 0 3rem;
+    font-size: 0.88rem;
+    color: var(--muted);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ===== Responsif ===== */
+@media (max-width: 640px) {
+    nav .wrapper {
+        justify-content: center;
+    }
+
+    nav .menu {
+        order: 3;
+        width: 100%;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

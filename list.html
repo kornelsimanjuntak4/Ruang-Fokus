@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Fokus</title>
+    <link rel="stylesheet" href="list.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500&family=Poppins:wght@700&display=swap">
+</head>
+<body>
+    <!-- logo NK sebagai latar belakang -->
+    <div class="bg-logo">
+        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <circle class="logo-circle" cx="200" cy="200" r="195"/>
+            <text x="200" y="248" text-anchor="middle" class="logo-text">NK<tspan class="logo-dot">.</tspan></text>
+        </svg>
+    </div>
+
+    <!-- navbar -->
+    <nav>
+        <div class="wrapper">
+            <div class="logo">Ruang Fokus</div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#tugas" class="tab">Tugas</a></li>
+                    <li><a href="#timer" class="tab">Timer</a></li>
+                    <li><a href="#catatan" class="tab">Catatan</a></li>
+                    <li><a href="#statistik" class="tab">Statistik</a></li>
+                </ul>
+            </div>
+            <button id="theme" class="button button-ghost">Terang</button>
+        </div>
+    </nav>
+
+    <!-- tugas -->
+    <section id="tugas" class="view">
+        <div class="wrapper">
+            <p class="muted" id="tanggal"></p>
+            <h1 id="sapaan">Halo.</h1>
+
+            <form id="form-tugas">
+                <input type="text" id="input-tugas" placeholder="Tulis satu tugas" maxlength="80" autocomplete="off">
+                <select id="pilih-prioritas">
+                    <option value="sedang">Sedang</option>
+                    <option value="tinggi">Tinggi</option>
+                    <option value="rendah">Rendah</option>
+                </select>
+                <button type="submit" class="button button-solid">Tambah</button>
+            </form>
+
+            <div class="toolbar">
+                <div class="filters" id="filters">
+                    <button data-filter="semua" class="active">Semua</button>
+                    <button data-filter="aktif">Aktif</button>
+                    <button data-filter="selesai">Selesai</button>
+                </div>
+                <input type="search" id="cari" placeholder="Cari tugas">
+            </div>
+
+            <ul id="daftar-tugas"></ul>
+
+            <div class="meta">
+                <span id="jumlah-tugas"></span>
+                <button id="hapus-selesai" class="link">Hapus yang selesai</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- timer -->
+    <section id="timer" class="view" hidden>
+        <div class="wrapper">
+            <h2>Sesi Fokus</h2>
+
+            <div class="modes" id="modes">
+                <button data-mode="fokus" class="active">Fokus 25</button>
+                <button data-mode="pendek">Istirahat 5</button>
+                <button data-mode="panjang">Istirahat 15</button>
+            </div>
+
+            <div class="dial">
+                <svg viewBox="0 0 200 200">
+                    <circle class="track" cx="100" cy="100" r="90"/>
+                    <circle class="bar" id="ring" cx="100" cy="100" r="90"/>
+                </svg>
+                <div class="dial-text">
+                    <span id="waktu">25:00</span>
+                    <small id="status">Siap dimulai</small>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="tombol-mulai" class="button button-solid">Mulai</button>
+                <button id="tombol-reset" class="button button-ghost">Atur ulang</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- catatan -->
+    <section id="catatan" class="view" hidden>
+        <div class="wrapper">
+            <h2>Catatan</h2>
+            <textarea id="isi-catatan" placeholder="Tulis apa saja. Tersimpan otomatis."></textarea>
+            <div class="meta">
+                <span id="jumlah-karakter">0 karakter</span>
+                <span id="status-simpan" class="muted"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- statistik -->
+    <section id="statistik" class="view" hidden>
+        <div class="wrapper">
+            <h2>Statistik</h2>
+            <div class="stats" id="angka"></div>
+
+            <h3>Tugas selesai, 7 hari terakhir</h3>
+            <div class="chart" id="grafik"></div>
+
+            <div class="meta">
+                <button id="unduh" class="link">Unduh data (JSON)</button>
+                <button id="hapus-semua" class="link">Hapus semua data</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="wrapper">
+            <p>Pintasan: tekan 1 sampai 4 untuk berpindah halaman.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

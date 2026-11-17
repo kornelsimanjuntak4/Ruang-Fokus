@@ -2,7 +2,6 @@
 
 > Platform web produktivitas dan ruang belajar virtual yang dirancang untuk membantu meningkatkan fokus, mengelola waktu belajar, serta memaksimalkan produktivitas harian.
 
-link: https://kornelsimanjuntak4.github.io/Ruang-Fokus/
 
 ---
 
